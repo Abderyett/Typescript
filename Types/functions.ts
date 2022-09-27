@@ -84,3 +84,10 @@ greet('boby')
 doSomething('ChickeFace', 76, false)
 
 
+
+
+function twoFer(name: string = 'you'): string {
+  return `one for ${name},one for me`
+}
+
+twoFer()
