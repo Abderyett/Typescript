@@ -22,6 +22,109 @@ printName(player)
 
 //? Type Aliases
 
-function doubleCoord(point: { x: number, y: number }): { x: number, y: number } {
+type Point = { x: number; y: number }
+
+function doubleCoord(point: Point): Point {
   return { x: point.x * 2, y: point.y * 2 }
+}
+
+
+type Song = {
+  title: string,
+  artist: string,
+  numStreams: number,
+  credits: {
+    producer: string,
+    writer: string
+  }
+}
+function calculatePayout(song: Song): number {
+  return song.numStreams * 0.003
+
+}
+
+function printSong(song: Song): void {
+  console.log(`${song.artist} - ${song.title}`)
+
+}
+
+
+const mySong: Song = {
+  title: 'Apocalypse',
+  artist: 'Cigarettes after sex',
+  numStreams: 12486,
+  credits: {
+    producer: 'Greg Gonzalez',
+    writer: 'Greg Gonzalez'
+  }
+}
+
+
+let earning = calculatePayout(mySong)
+console.log(earning)
+printSong(mySong)
+
+//! Optional properties
+
+type Dimension = {
+  x: number,
+  y: number,
+  z?: number
+}
+
+const possibleDimensions: Dimension = { x: 3, y: 5 }
+
+
+//! readonly properties
+
+type User = {
+  readonly id: number,
+  username: string
+}
+
+
+const newUser: User = {
+  id: 567,
+  username: 'jesse'
+}
+
+console.log(newUser.id)
+
+// newUser.id = 56255
+
+//! intersection type
+
+
+type Circle = {
+  radius: number
+}
+type Colorful = {
+  color: string
+}
+
+type ColorfulCircle = Circle & Colorful
+
+const happyFace: ColorfulCircle = {
+  radius: 5,
+  color: 'yellow'
+}
+
+type Cat = {
+  numLives: number
+}
+
+type Dog = {
+  breed: string
+}
+
+type CatDog = Cat & Dog & {
+  age: number
+}
+
+
+const oscar: CatDog = {
+  numLives: 8,
+  breed: 'Husky',
+  age: 4
+
 }
