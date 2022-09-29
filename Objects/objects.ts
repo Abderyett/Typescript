@@ -128,3 +128,40 @@ const oscar: CatDog = {
   age: 4
 
 }
+
+
+type Movie = {
+  readonly title: string,
+  originalTitle?: string,
+  director: string,
+  releaseYear: number,
+  boxOffice: {
+    budget: number,
+    grossUS: number,
+    grossWorldwide: number
+  }
+}
+
+const dune: Movie = {
+  title: "dune",
+  originalTitle: "Dune Part One",
+  director: "Denis Villeneuve",
+  releaseYear: 2021,
+  boxOffice: {
+    budget: 165000000,
+    grossUS: 108325568,
+    grossWorldwide: 4008925565
+
+  }
+}
+
+function getProfit(movie: Movie): number {
+
+  let globalGross = movie.boxOffice.grossWorldwide;
+  let movieBudget = movie.boxOffice.budget;
+
+  return globalGross - movieBudget
+}
+
+console.log(getProfit(dune))
+

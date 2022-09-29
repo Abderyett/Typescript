@@ -30,3 +30,35 @@ var mySong = {
 var earning = calculatePayout(mySong);
 console.log(earning);
 printSong(mySong);
+var possibleDimensions = { x: 3, y: 5 };
+var newUser = {
+    id: 567,
+    username: 'jesse'
+};
+console.log(newUser.id);
+var happyFace = {
+    radius: 5,
+    color: 'yellow'
+};
+var oscar = {
+    numLives: 8,
+    breed: 'Husky',
+    age: 4
+};
+var dune = {
+    title: "dune",
+    originalTitle: "Dune Part One",
+    director: "Denis Villeneuve",
+    releaseYear: 2021,
+    boxOffice: {
+        budget: 165000000,
+        grossUS: 108325568,
+        grossWorldwide: 4008925565
+    }
+};
+function getProfit(movie) {
+    var globalGross = movie.boxOffice.grossWorldwide;
+    var movieBudget = movie.boxOffice.budget;
+    return globalGross - movieBudget;
+}
+console.log(getProfit(dune));
