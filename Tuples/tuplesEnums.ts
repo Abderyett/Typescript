@@ -6,3 +6,21 @@ type HTTPResponse = [number, string]
 const statusRes: HTTPResponse = [200, 'OK']
 
 statusRes.push(123)
+
+
+//Enums
+
+
+enum StatusResponse {
+
+  PENDING,
+  SHIPPED,
+  DELIVERED,
+  RETURNED
+}
+
+const packageOne = StatusResponse.PENDING
+function isDelivred(status: StatusResponse) {
+  return status === StatusResponse.DELIVERED
+}
+isDelivred(StatusResponse.PENDING)
