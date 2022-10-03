@@ -24,3 +24,10 @@ function isDelivred(status: StatusResponse) {
   return status === StatusResponse.DELIVERED
 }
 isDelivred(StatusResponse.PENDING)
+
+enum ArrowKey{
+  UP='up',
+  DOWN='down',
+  LEFT='left',
+  RIGHT='right',
+}
