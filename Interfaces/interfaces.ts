@@ -44,3 +44,73 @@ const shoes: Product = {
 }
 
 shoes.applyDiscount(.4)
+
+
+
+//Agregate two interfaces
+ interface Dog{
+  name:string;
+  age:number;
+ }
+
+
+ interface Dog {
+  breed:string,
+  bark():string;
+ }
+
+
+ const elton: Dog = {
+  name:'elton',
+  age:.5,
+  breed:'Astralian sheperd',
+  bark:()=>`woof`
+
+
+ }
+
+
+
+
+
+//  extends interface
+
+ interface ServiceDog extends Dog{
+  job:"Drug dog"|"bomb"|"guide dog"
+ }
+
+
+ const chewy:ServiceDog = {
+  name:'chewy',
+  age:5,
+  breed:"lab",
+  bark(){
+    return "bark"
+  },
+  job:"guide dog"
+ }
+
+
+ //Extending multiple interfaces
+
+ interface Human{
+  name:string
+ }
+
+ interface Employee{
+  readonly id:number,
+  email:string
+ }
+
+ interface Engineer extends Human,Employee{
+  level:string,
+  languages:string[]
+ }
+
+ const Andrei:Engineer = {
+  name:"Andrei", 
+  id:534,
+  email:"anderei@email.com",
+  level:"senior",
+  languages:["javascript","python"]
+ }
