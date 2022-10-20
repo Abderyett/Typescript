@@ -1,19 +1,39 @@
 class Player {
-	public readonly name: string;
-	public age: number;
-	private score: number = 0;
+	// public readonly name: string;
+	// public age: number;
+	// private _score: number = 0;
 
-	constructor(name: string, age: number) {
-		this.name = name;
-		this.age = age;
-	}
+	constructor(
+		public name: string,
+		public age: number,
+		protected _score: number = 0
+	) {}
 
 	private secretMethod(): void {
 		console.log('Secret method');
 	}
+
+	get fullName(): string {
+		return `${this.name} ${this.age}`;
+	}
+
+	set score(newScore: number) {
+		if (newScore < 0) {
+			throw new Error('Score must be positive');
+		}
+		this._score = newScore;
+	}
 }
 
-const player1 = new Player('Jesse', 23);
+class superPlayer extends Player {
+	public isAdmin: boolean = true;
+	maxScore() {
+		this._score = 99999;
+	}
+}
+
+const player1 = new Player('Colt', 35, 100);
+player1.score = 99;
 
 // player1.score = 23;
 
