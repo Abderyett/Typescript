@@ -60,6 +60,57 @@ var superPlayer = /** @class */ (function (_super) {
 }(Player));
 var player1 = new Player('Colt', 35, 100);
 player1.score = 99;
-// player1.score = 23;
-// it's still run method on runtime
-// player1.secretMethod();
+var Bike = /** @class */ (function () {
+    function Bike(color) {
+        this.color = color;
+    }
+    return Bike;
+}());
+var bike1 = new Bike('red');
+var Jacket = /** @class */ (function () {
+    function Jacket(color, brand) {
+        this.color = color;
+        this.brand = brand;
+    }
+    Jacket.prototype.print = function () {
+        console.log("".concat(this.brand, " ").concat(this.color, " Jacket"));
+    };
+    return Jacket;
+}());
+var jacket1 = new Jacket('prada', 'black');
+var Employee = /** @class */ (function () {
+    function Employee(first, last) {
+        this.first = first;
+        this.last = last;
+    }
+    return Employee;
+}());
+var FulltimeEmployee = /** @class */ (function (_super) {
+    __extends(FulltimeEmployee, _super);
+    function FulltimeEmployee(first, last, salary) {
+        var _this = _super.call(this, first, last) || this;
+        _this.salary = salary;
+        return _this;
+    }
+    FulltimeEmployee.prototype.getPayed = function () {
+        return this.salary;
+    };
+    return FulltimeEmployee;
+}(Employee));
+var PartTimeEmployee = /** @class */ (function (_super) {
+    __extends(PartTimeEmployee, _super);
+    function PartTimeEmployee(first, last, hourlyRate, workedHour) {
+        var _this = _super.call(this, first, last) || this;
+        _this.hourlyRate = hourlyRate;
+        _this.workedHour = workedHour;
+        return _this;
+    }
+    PartTimeEmployee.prototype.getPayed = function () {
+        return this.hourlyRate * this.workedHour;
+    };
+    return PartTimeEmployee;
+}(Employee));
+var ben = new FulltimeEmployee('Ben', 'white', 5000);
+console.log(ben.getPayed());
+var rob = new PartTimeEmployee('Rob', 'Holding', 20, 60);
+console.log(rob.getPayed());
