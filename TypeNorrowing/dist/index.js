@@ -18,3 +18,45 @@ var printLetter = function (word) {
         console.log('there is nothing');
     }
 };
+// Equality narrowing
+function doThing(x, y) {
+    if (x === y) {
+        return x.toUpperCase();
+    }
+}
+function getRuntime(media) {
+    if ('numEpisodes' in media) {
+        return media.numEpisodes * media.episodeDuration;
+    }
+    else {
+        return media.duration;
+    }
+}
+console.log(getRuntime({ title: 'Shawshank redemption', duration: 140 }));
+console.log(getRuntime({ title: 'Mentalist', numEpisodes: 60, episodeDuration: 50 }));
+function printFullDate(date) {
+    if (date instanceof Date) {
+        console.log(date.toUTCString());
+    }
+    return console.log(new Date(date).toUTCString());
+}
+var User = /** @class */ (function () {
+    function User(name) {
+        this.name = name;
+    }
+    return User;
+}());
+var Company = /** @class */ (function () {
+    function Company(username) {
+        this.username = username;
+    }
+    return Company;
+}());
+function printEntity(entity) {
+    if (entity instanceof User) {
+        console.log(entity.name);
+    }
+    else {
+        console.log(entity.username);
+    }
+}
