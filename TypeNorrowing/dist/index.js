@@ -60,3 +60,36 @@ function printEntity(entity) {
         console.log(entity.username);
     }
 }
+// Narrowing Predicates
+function isCat(animal) {
+    return animal.numLives !== undefined;
+}
+function makeNoise(animal) {
+    if (isCat(animal)) {
+        return 'Meao';
+    }
+    else {
+        return 'Whof';
+    }
+}
+function getFarmSound(animal) {
+    switch (animal.TYPE) {
+        case 'cow':
+            return 'Mow';
+        case 'rooster':
+            return 'roost';
+        case 'duck':
+            return 'Kwak';
+        default:
+            //We should never get it here if handlded all cas correctly
+            var shoudlNeverGetHere = animal;
+            return shoudlNeverGetHere;
+    }
+}
+var stevie = {
+    name: 'stevie',
+    weight: 4,
+    age: 2,
+    TYPE: 'rooster',
+};
+console.log(getFarmSound(stevie));

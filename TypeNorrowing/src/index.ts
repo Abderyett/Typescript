@@ -73,3 +73,73 @@ function printEntity(entity: User | Company) {
 		console.log(entity.username);
 	}
 }
+
+interface Cat {
+	name: string;
+	numLives: number;
+}
+
+interface Dog {
+	name: string;
+	breed: string;
+}
+
+// Narrowing Predicates
+
+function isCat(animal: Cat | Dog): animal is Cat {
+	return (animal as Cat).numLives !== undefined;
+}
+
+function makeNoise(animal: Cat | Dog): string {
+	if (isCat(animal)) {
+		return 'Meao';
+	} else {
+		return 'Whof';
+	}
+}
+
+//Descriminated Union
+
+interface Cow {
+	name: string;
+	weight: number;
+	age: number;
+	TYPE: 'cow';
+}
+interface Rooster {
+	name: string;
+	weight: number;
+	age: number;
+	TYPE: 'rooster';
+}
+interface Duck {
+	name: string;
+	weight: number;
+	age: number;
+	TYPE: 'duck';
+}
+type FarmAnimals = Rooster | Duck | Cow;
+
+function getFarmSound(animal: FarmAnimals) {
+	switch (animal.TYPE) {
+		case 'cow':
+			return 'Mow';
+		case 'rooster':
+			return 'roost';
+		case 'duck':
+			return 'Kwak';
+		default:
+			//We should never get it here if handlded all cas correctly
+			const shoudlNeverGetHere: never = animal;
+			return shoudlNeverGetHere;
+	}
+}
+
+const stevie: Rooster = {
+	name: 'stevie',
+	weight: 4,
+	age: 2,
+	TYPE: 'rooster',
+};
+
+console.log(getFarmSound(stevie));
