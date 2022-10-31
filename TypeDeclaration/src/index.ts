@@ -1,5 +1,5 @@
 import axios from 'axios';
-console.clear();
+import _ from 'lodash';
 
 axios
 	.get('https://jsonplaceholder.typicode.com/users/1')
