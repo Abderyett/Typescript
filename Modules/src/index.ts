@@ -1,5 +1,8 @@
-console.log('hello');
+// console.log('hello');
+import { add, sample } from './utils.js';
+import User from './Uers.js';
 
-sample([1, 2, 3]);
-
-add(1, 2);
+console.clear();
+console.log(sample([1, 55, 632]));
+console.log(add(8, 2));
+// console.log(User);
