@@ -1,5 +1,5 @@
-import { add, multiply, devide } from './utils.js';
-import Dog from './Dog.js';
+import { add, multiply, devide } from './utils';
+import Dog from './Dog';
 console.clear();
 var elton = new Dog('elton', 'Aussie', 0.5);
 elton.barck();
